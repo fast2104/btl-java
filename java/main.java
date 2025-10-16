@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class QuanLiNhapHang {
+public class main {
 
     // ====== Lớp SanPham ======
     static class SanPham {
