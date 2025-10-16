@@ -61,16 +61,16 @@ public class DonViCungCap {
 				'}';
 	}
 
-	@Override
-	public boolean equals(Object o) {
-		if (this == o) return true;
-		if (o == null || getClass() != o.getClass()) return false;
-		DonViCungCap that = (DonViCungCap) o;
-		return Objects.equals(maDonVi, that.maDonVi);
-	}
+// 	@Override
+// 	public boolean equals(Object o) {
+// 		if (this == o) return true;
+// 		if (o == null || getClass() != o.getClass()) return false;
+// 		DonViCungCap that = (DonViCungCap) o;
+// 		return Objects.equals(maDonVi, that.maDonVi);
+// 	}
 
-	@Override
-	public int hashCode() {
-		return Objects.hash(maDonVi);
-	}
-}
+// 	@Override
+// 	public int hashCode() {
+// 		return Objects.hash(maDonVi);
+// 	}
+// }

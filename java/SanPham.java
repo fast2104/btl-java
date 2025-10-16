@@ -160,16 +160,16 @@ public class SanPham {
 				'}';
 	}
 
-	@Override
-	public boolean equals(Object o) {
-		if (this == o) return true;
-		if (o == null || getClass() != o.getClass()) return false;
-		SanPham sanPham = (SanPham) o;
-		return Objects.equals(maSanPham, sanPham.maSanPham);
-	}
+// 	@Override
+// 	public boolean equals(Object o) {
+// 		if (this == o) return true;
+// 		if (o == null || getClass() != o.getClass()) return false;
+// 		SanPham sanPham = (SanPham) o;
+// 		return Objects.equals(maSanPham, sanPham.maSanPham);
+// 	}
 
-	@Override
-	public int hashCode() {
-		return Objects.hash(maSanPham);
-	}
-}
+// 	@Override
+// 	public int hashCode() {
+// 		return Objects.hash(maSanPham);
+// 	}
+// }

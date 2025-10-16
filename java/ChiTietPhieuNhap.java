@@ -48,16 +48,16 @@ public class ChiTietPhieuNhap {
 				'}';
 	}
 
-	@Override
-	public boolean equals(Object o) {
-		if (this == o) return true;
-		if (o == null || getClass() != o.getClass()) return false;
-		ChiTietPhieuNhap that = (ChiTietPhieuNhap) o;
-		return soLuong == that.soLuong && donGia == that.donGia && Objects.equals(sanPham, that.sanPham);
-	}
+// 	@Override
+// 	public boolean equals(Object o) {
+// 		if (this == o) return true;
+// 		if (o == null || getClass() != o.getClass()) return false;
+// 		ChiTietPhieuNhap that = (ChiTietPhieuNhap) o;
+// 		return soLuong == that.soLuong && donGia == that.donGia && Objects.equals(sanPham, that.sanPham);
+// 	}
 
-	@Override
-	public int hashCode() {
-		return Objects.hash(sanPham, soLuong, donGia);
-	}
-}
+// 	@Override
+// 	public int hashCode() {
+// 		return Objects.hash(sanPham, soLuong, donGia);
+// 	}
+// }
