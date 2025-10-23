@@ -3,82 +3,59 @@ import java.util.Scanner;
 import java.util.Vector;
 
 public class QuanTriVien extends NhanVien {
+    private String maQuanTriVien;
+    private Vector<NhanVien> danhSachNhanVien;
 
-	private Vector<NhanVien> danhSachNhanVien;
+    public QuanTriVien() {
+        this.danhSachNhanVien = new Vector<>();
+    }
 
-	public QuanTriVien() {
-		this.danhSachNhanVien = new Vector<>();
-	}
+    @Override
+    public void input(Scanner sc) {
+        super.input(sc);
+        System.out.print("Nhap ma quan tri vien: ");
+        maQuanTriVien = sc.nextLine();
+    }
 
-	public QuanTriVien(Vector<NhanVien> danhSachNhanVien) {
-		this.danhSachNhanVien = (danhSachNhanVien == null) ? new Vector<>() : danhSachNhanVien;
-	}
+    @Override
+    public void output() {
+        super.output();
+        System.out.println("Ma Quan Ly: " + maQuanTriVien);
+        System.out.println("So luong nhan vien dang quan ly: " + danhSachNhanVien.size());
+    }
 
-	public Vector<NhanVien> getDanhSachNhanVien() {
-		return danhSachNhanVien;
-	}
+    public void themNhanVien() {
+        Scanner sc = new Scanner(System.in);
+        NhanVien nv = new NhanVien();
+        nv.input(sc);
 
-	public void setDanhSachNhanVien(Vector<NhanVien> danhSachNhanVien) {
-		this.danhSachNhanVien = danhSachNhanVien;
-	}
+        Optional<NhanVien> existed = danhSachNhanVien.stream()
+                .filter(n -> n.cccd != null && n.cccd.equals(nv.cccd))
+                .findFirst();
+        if (existed.isPresent()) {
+            System.out.println("Nhan vien da ton tai");
+            return;
+        }
+        danhSachNhanVien.add(nv);
+        System.out.println("Da them nhan vien thanh cong.");
+    }
 
-	public void themNhanVien() {
-		Scanner scanner = new Scanner(System.in);
-		NhanVien nv = new NhanVien();
-		nv.input();
-		// Tranh trung ma nhan vien
-		Optional<NhanVien> existed = danhSachNhanVien.stream()
-				.filter(n -> nv.getMaNhanVien() != null && nv.getMaNhanVien().equals(n.getMaNhanVien()))
-				.findFirst();
-		if (existed.isPresent()) {
-			System.out.println("Ma nhan vien da ton tai, khong the them.");
-			return;
-		}
-		danhSachNhanVien.add(nv);
-		System.out.println("Da them nhan vien.");
-	}
+    public void xoaNhanVien() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Nhap CCCD nhan vien can xoa: ");
+        String ma = sc.nextLine();
+        boolean removed = danhSachNhanVien.removeIf(n -> n.cccd != null && n.cccd.equals(ma));
+        System.out.println(removed ? "Da xoa nhan vien." : "Khong tim thay nhan vien.");
+    }
 
-	public void xoaNhanVien() {
-		Scanner scanner = new Scanner(System.in);
-		System.out.print("Nhap ma nhan vien can xoa: ");
-		String ma = scanner.nextLine();
-		boolean removed = danhSachNhanVien.removeIf(n -> n.getMaNhanVien() != null && n.getMaNhanVien().equals(ma));
-		System.out.println(removed ? "Da xoa nhan vien." : "Khong tim thay nhan vien.");
-	}
-
-	public void suaNhanVien() {
-		Scanner scanner = new Scanner(System.in);
-		System.out.print("Nhap ma nhan vien can sua: ");
-		String ma = scanner.nextLine();
-		for (int i = 0; i < danhSachNhanVien.size(); i++) {
-			NhanVien n = danhSachNhanVien.get(i);
-			if (n.getMaNhanVien() != null && n.getMaNhanVien().equals(ma)) {
-				System.out.println("Nhap lai thong tin nhan vien (se ghi de):");
-				NhanVien capNhat = new NhanVien();
-				capNhat.setMaNhanVien(ma);
-				capNhat.input();
-				// Dam bao khong thay doi ma
-				capNhat.setMaNhanVien(ma);
-				danhSachNhanVien.set(i, capNhat);
-				System.out.println("Da cap nhat nhan vien.");
-				return;
-			}
-		}
-		System.out.println("Khong tim thay nhan vien.");
-	}
-
-	public NhanVien timKiemNhanVien() {
-		Scanner scanner = new Scanner(System.in);
-		System.out.print("Nhap ma nhan vien can tim: ");
-		String ma = scanner.nextLine();
-		for (NhanVien n : danhSachNhanVien) {
-			if (n.getMaNhanVien() != null && n.getMaNhanVien().equals(ma)) {
-				System.out.println("Tim thay: ");
-				n.output();
-				return n;
-			}
-		}
-		System.out.println("Khong tim thay nhan vien.");
-		return null;
-	}
+    public void hienThiTatCaNhanVien() {
+        if (danhSachNhanVien.isEmpty()) {
+            System.out.println("Danh sach nhan vien rong");
+            return;
+        }
+        System.out.println("    DANH SACH NHAN VIEN");
+        for (NhanVien n : danhSachNhanVien) {
+            n.output();
+        }
+    }
 }
