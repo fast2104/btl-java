@@ -4,6 +4,7 @@ import java.util.Vector;
 
 public class QuanTriVien extends NhanVien {
     private String maQuanTriVien;
+    private long luong;
     private Vector<NhanVien> danhSachNhanVien;
 
     public QuanTriVien() {
@@ -13,14 +14,17 @@ public class QuanTriVien extends NhanVien {
     @Override
     public void input(Scanner sc) {
         super.input(sc);
-        System.out.print("Nhap ma quan tri vien: ");
+        System.out.print("Nhap ma quan ly: ");
         maQuanTriVien = sc.nextLine();
+        System.out.print("Nhap luong quan ly: ");
+        luong = sc.nextLong();
     }
 
     @Override
     public void output() {
         super.output();
         System.out.println("Ma Quan Ly: " + maQuanTriVien);
+        System.out.println("Luong quan ly: " + luong);
         System.out.println("So luong nhan vien dang quan ly: " + danhSachNhanVien.size());
     }
 
