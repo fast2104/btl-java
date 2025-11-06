@@ -5,6 +5,7 @@ public class DonViCungCap implements Ihanghoa {
     private String maDonVi;
     private String tenDonVi;
     private String matHang;
+    private String diachi;
     
     @Override
     public void input(Scanner sc) {
@@ -14,6 +15,8 @@ public class DonViCungCap implements Ihanghoa {
         tenDonVi = sc.nextLine();
         System.out.print("Nhap mat hang: ");
         matHang = sc.nextLine();
+        System.out.println("nhap dia chi: ");
+        diachi = sc.nextLine();
     }
     
     @Override
@@ -21,5 +24,6 @@ public class DonViCungCap implements Ihanghoa {
         System.out.println("Ma don vi: " + maDonVi);
         System.out.println("Ten don vi: " + tenDonVi);
         System.out.println("Mat hang: " + matHang);
+        System.out.println("dia chi: " + diachi);
     }
 }
