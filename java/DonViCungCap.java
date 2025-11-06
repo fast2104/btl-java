@@ -15,7 +15,7 @@ public class DonViCungCap implements Ihanghoa {
         tenDonVi = sc.nextLine();
         System.out.print("Nhap mat hang: ");
         matHang = sc.nextLine();
-        System.out.println("nhap dia chi: ");
+        System.out.print("nhap dia chi: ");
         diachi = sc.nextLine();
     }
     
