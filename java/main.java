@@ -31,6 +31,8 @@ public class main {
             System.out.println("1. Them nhan vien");
             System.out.println("2. Xoa nhan vien");
             System.out.println("3. Hien thi tat ca");
+            System.out.println("4. Sua nhan vien");
+            System.out.println("5. tim nhan vien");
             System.out.println("0. Quay lai");
             System.out.print("Chon: ");
             c = sc.nextInt();
@@ -40,6 +42,8 @@ public class main {
                 case 1 -> qtv.themNhanVien();
                 case 2 -> qtv.xoaNhanVien();
                 case 3 -> qtv.hienThiTatCaNhanVien();
+                case 4 -> qtv.suaNhanVien();
+                case 5 -> qtv.timnhanvien();
             }
         } while (c != 0);
     }
