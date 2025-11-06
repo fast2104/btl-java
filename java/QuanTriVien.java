@@ -54,7 +54,7 @@ public class QuanTriVien extends NhanVien {
             n.output();
         }
     }
-    public void suaNhanVien() {
+        public void suaNhanVien() {
         Scanner sc = new Scanner(System.in);
         System.out.print("Nhap ma nhan vien can sua: ");
         String ma = sc.nextLine();
@@ -72,7 +72,7 @@ public class QuanTriVien extends NhanVien {
             String tenMoi = sc.nextLine();
             if(!tenMoi.isEmpty()) n.hoTen = tenMoi;
             
-            System.out.println("nhap cccd moi(giu nguyen nhap bo trong): ");
+            System.out.print("nhap cccd moi(giu nguyen nhap bo trong): ");
             String cccdmoi = sc.nextLine();
             if(!cccdmoi.isEmpty()) n.cccd = cccdmoi;
 
@@ -80,17 +80,37 @@ public class QuanTriVien extends NhanVien {
             String diaChiMoi = sc.nextLine();
             if(!diaChiMoi.isEmpty()) n.diaChi = diaChiMoi;
             
-            System.out.println("nhap sdt moi(giu nguyen nhap bo trong): ");
+            System.out.print("nhap sdt moi(giu nguyen nhap bo trong): ");
             String sdtmoi = sc.nextLine();
             if(!sdtmoi.isEmpty()) n.soDienThoai = sdtmoi;
             
-            System.out.println("nhap dob moi(giu nguyen nhap bo trong): ");
+            System.out.print("nhap dob moi(giu nguyen nhap bo trong): ");
             String dobmoi = sc.nextLine();
             if(!dobmoi.isEmpty()) n.doB = dobmoi;
             
-            System.out.println("nhap gioi tinh moi(gay?): ");
+            System.out.print("nhap gioi tinh moi(gay?): ");
             String gioitinhmoi = sc.nextLine();
             if(!gioitinhmoi.isEmpty()) n.gioiTinh = gioitinhmoi;
+            
+            System.out.print("nhap vai tro moi(giu nguyen nhap bo trong): ");
+            String vaitromoi = sc.nextLine();
+            if(!vaitromoi.isEmpty()) n.vaitro = vaitromoi;
+            
+            System.out.print("nhap trang thai moi(giu nguyen nhap bo trong): ");
+            String trangthaimoi = sc.nextLine();
+            if(!trangthaimoi.isEmpty()) n.trangthai = trangthaimoi;
+            
+            System.out.print("nhap user moi(giu nguyen nhap bo trong): ");
+            String usermoi = sc.nextLine();
+            if(!usermoi.isEmpty()) n.user = usermoi;
+            
+            System.out.print("nhap password moi(giu nguyen nhap bo trong): ");
+            String passwordmoi = sc.nextLine();
+            if(!passwordmoi.isEmpty()) n.password = passwordmoi;
+            
+            System.out.print("nhap quyen han moi(giu nguyen nhap bo trong): ");
+            String quyenhanmoi = sc.nextLine();
+            if(!quyenhanmoi.isEmpty()) n.quyenhan = quyenhanmoi;
 
             System.out.print("Nhap luong moi(giu nguyen nhap 0): ");
             double luongMoi = sc.nextDouble();
