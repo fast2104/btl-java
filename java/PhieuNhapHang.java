@@ -1,3 +1,5 @@
+package javaptit1.projjava;
+
 import java.util.Scanner;
 
 public class PhieuNhapHang implements Ihanghoa {

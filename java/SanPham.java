@@ -1,3 +1,5 @@
+package javaptit1.projjava;
+
 import java.util.*;
 import java.util.Scanner;
 public class SanPham implements Ihanghoa {

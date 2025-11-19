@@ -1,3 +1,6 @@
+// java
+package javaptit1.projjava;
+
 import java.util.Optional;
 import java.util.Scanner;
 import java.util.Vector;
@@ -26,8 +29,8 @@ public class QuanTriVien extends NhanVien {
         nv.input(sc);
 
         Optional<NhanVien> existed = danhSachNhanVien.stream()
-            .filter(n -> n.cccd != null && n.cccd.equals(nv.cccd))
-            .findFirst();
+                .filter(n -> n.cccd != null && n.cccd.equals(nv.cccd))
+                .findFirst();
         if (existed.isPresent()) {
             System.out.println("Nhan vien da ton tai");
             return;
@@ -40,7 +43,7 @@ public class QuanTriVien extends NhanVien {
         Scanner sc = new Scanner(System.in);
         System.out.print("Nhap ma nhan vien nhan vien can xoa: ");
         String ma = sc.nextLine();
-        boolean removed = danhSachNhanVien.removeIf(n -> n.maNhanVien != null && n.maNhanVien.equals(ma));
+        boolean removed = danhSachNhanVien.removeIf(n -> n.getMaNhanVien() != null && n.getMaNhanVien().equals(ma));
         System.out.println(removed ? "Da xoa nhan vien." : "Khong tim thay nhan vien.");
     }
 
@@ -54,14 +57,15 @@ public class QuanTriVien extends NhanVien {
             n.output();
         }
     }
-        public void suaNhanVien() {
+
+    public void suaNhanVien() {
         Scanner sc = new Scanner(System.in);
         System.out.print("Nhap ma nhan vien can sua: ");
         String ma = sc.nextLine();
 
         Optional<NhanVien> nv = danhSachNhanVien.stream()
-            .filter(n -> n.maNhanVien != null && n.maNhanVien.equals(ma))
-            .findFirst();
+                .filter(n -> n.getMaNhanVien() != null && n.getMaNhanVien().equals(ma))
+                .findFirst();
 
         if (nv.isPresent()) {
             NhanVien n = nv.get();
@@ -71,7 +75,7 @@ public class QuanTriVien extends NhanVien {
             System.out.print("Nhap ten moi(giu nguyen nhap bo trong): ");
             String tenMoi = sc.nextLine();
             if(!tenMoi.isEmpty()) n.hoTen = tenMoi;
-            
+
             System.out.print("nhap cccd moi(giu nguyen nhap bo trong): ");
             String cccdmoi = sc.nextLine();
             if(!cccdmoi.isEmpty()) n.cccd = cccdmoi;
@@ -79,55 +83,56 @@ public class QuanTriVien extends NhanVien {
             System.out.print("Nhap dia chi moi(giu nguyen nhap bo trong): ");
             String diaChiMoi = sc.nextLine();
             if(!diaChiMoi.isEmpty()) n.diaChi = diaChiMoi;
-            
+
             System.out.print("nhap sdt moi(giu nguyen nhap bo trong): ");
             String sdtmoi = sc.nextLine();
             if(!sdtmoi.isEmpty()) n.soDienThoai = sdtmoi;
-            
+
             System.out.print("nhap dob moi(giu nguyen nhap bo trong): ");
             String dobmoi = sc.nextLine();
             if(!dobmoi.isEmpty()) n.doB = dobmoi;
-            
+
             System.out.print("nhap gioi tinh moi(gay?): ");
             String gioitinhmoi = sc.nextLine();
             if(!gioitinhmoi.isEmpty()) n.gioiTinh = gioitinhmoi;
-            
+
             System.out.print("nhap vai tro moi(giu nguyen nhap bo trong): ");
             String vaitromoi = sc.nextLine();
-            if(!vaitromoi.isEmpty()) n.vaitro = vaitromoi;
-            
+            if(!vaitromoi.isEmpty()) n.setVaitro(vaitromoi);
+
             System.out.print("nhap trang thai moi(giu nguyen nhap bo trong): ");
             String trangthaimoi = sc.nextLine();
-            if(!trangthaimoi.isEmpty()) n.trangthai = trangthaimoi;
-            
+            if(!trangthaimoi.isEmpty()) n.setTrangthai(trangthaimoi);
+
             System.out.print("nhap user moi(giu nguyen nhap bo trong): ");
             String usermoi = sc.nextLine();
-            if(!usermoi.isEmpty()) n.user = usermoi;
-            
+            if(!usermoi.isEmpty()) n.setUser(usermoi);
+
             System.out.print("nhap password moi(giu nguyen nhap bo trong): ");
             String passwordmoi = sc.nextLine();
-            if(!passwordmoi.isEmpty()) n.password = passwordmoi;
-            
+            if(!passwordmoi.isEmpty()) n.setPassword(passwordmoi);
+
             System.out.print("nhap quyen han moi(giu nguyen nhap bo trong): ");
             String quyenhanmoi = sc.nextLine();
-            if(!quyenhanmoi.isEmpty()) n.quyenhan = quyenhanmoi;
+            if(!quyenhanmoi.isEmpty()) n.setQuyenhan(quyenhanmoi);
 
             System.out.print("Nhap luong moi(giu nguyen nhap 0): ");
             double luongMoi = sc.nextDouble();
-            if(luongMoi > 0) n.luong = (long) luongMoi;
+            if(luongMoi > 0) n.setLuong((long) luongMoi);
 
             System.out.println("da update tt nhan vien");
         } else {
             System.out.println("khong co nhan vien.");
         }
     }
+
     public void timnhanvien(){
         Scanner sc = new Scanner(System.in);
         System.out.println("Nhap ma nhan vien: ");
         String mnv = sc.nextLine();
-        
+
         Optional<NhanVien> nv = danhSachNhanVien.stream()
-                .filter(n -> n.maNhanVien != null && n.maNhanVien.equalsIgnoreCase(mnv))
+                .filter(n -> n.getMaNhanVien() != null && n.getMaNhanVien().equalsIgnoreCase(mnv))
                 .findFirst();
         if(nv.isPresent()) nv.get().output();
         else System.out.println("ko tim thay nv");
