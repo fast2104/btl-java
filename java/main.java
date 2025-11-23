@@ -56,20 +56,24 @@ public class main {
 
         SanPham sp = new SanPham();
         System.out.println("\nNHAP SAN PHAM:");
+        sc.nextLine();
         sp.input(sc);
         System.out.println("THONG TIN SAN PHAM:");
         sp.output();
+        sp.ghiFileAppend("SanPham.txt");
 
         DonViCungCap dv = new DonViCungCap();
         System.out.println("\nNHAP DV CUNG CAP:");
         dv.input(sc);
         System.out.println("THONG TIN DVCC:");
         dv.output();
+        dv.ghiFileAppend("DonViCungCap.txt");
 
         PhieuNhapHang phieu = new PhieuNhapHang();
         System.out.println("\nNHAP PHIEU NHAP HANG:");
         phieu.input(sc);
         System.out.println("THONG TIN PHIEU:");
         phieu.output();
+        phieu.ghiFileAppend("PhieuNhap.txt");
     }
 }
