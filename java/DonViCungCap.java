@@ -1,5 +1,5 @@
 import java.util.Scanner;
-import java.util.*;
+import java.io.*;
 
 public class DonViCungCap implements Ihanghoa {
     private String maDonVi;
@@ -15,7 +15,7 @@ public class DonViCungCap implements Ihanghoa {
         tenDonVi = sc.nextLine();
         System.out.print("Nhap mat hang: ");
         matHang = sc.nextLine();
-        System.out.println("nhap dia chi: ");
+        System.out.print("nhap dia chi: ");
         diachi = sc.nextLine();
     }
     
@@ -26,4 +26,17 @@ public class DonViCungCap implements Ihanghoa {
         System.out.println("Mat hang: " + matHang);
         System.out.println("dia chi: " + diachi);
     }
+    
+    public String toFileString() {
+        return maDonVi + ";" + tenDonVi + ";" + matHang + ";" + diachi;
+    }
+
+    public void ghiFileAppend(String tenFile) {
+        try (PrintWriter pw = new PrintWriter(new FileWriter(tenFile, true))) {
+            pw.println(toFileString());
+            System.out.println("Da ghi don vi cung cap vao file: " + tenFile);
+        } catch (IOException e) {
+            System.out.println("Loi ghi file DVCC: " + e.getMessage());
+        }
+    }    
 }
