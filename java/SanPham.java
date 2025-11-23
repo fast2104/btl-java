@@ -1,4 +1,4 @@
-import java.util.*;
+import java.io.*;
 import java.util.Scanner;
 public class SanPham implements Ihanghoa {
     private String maSanPham;
@@ -16,28 +16,25 @@ public class SanPham implements Ihanghoa {
     public void input(Scanner sc) {
         System.out.print("Nhap ma SP: ");
         maSanPham = sc.nextLine();
-        sc.next();
         System.out.print("Nhap ten SP: ");
         tenSanPham = sc.nextLine();
-        sc.next();
         System.out.print("nhap loai san pham: ");
         loaiSanpham = sc.nextLine();
-        sc.next();
         System.out.print("nhap nguon goc: ");
         nguongoc = sc.nextLine();
-        sc.next();
         System.out.print("nhap mo ta: ");
         moTa = sc.nextLine();
-        sc.next();
         System.out.print("nhap don vi: ");
         donvi = sc.nextLine();
-        sc.next();
         System.out.print("Nhap gia ban: ");
         giaBan = sc.nextInt();
+        sc.nextLine();
         System.out.print("Nhap gia mua: ");
         giaMua = sc.nextInt();
+        sc.nextLine();
         System.out.print("Nhap ton kho: ");
         tonKho = sc.nextInt();
+        sc.nextLine();
         System.out.print("Nhap da ban: ");
         daBan = sc.nextInt();
         sc.nextLine();
@@ -56,4 +53,18 @@ public class SanPham implements Ihanghoa {
         System.out.println("Ton kho: " + tonKho);
         System.out.println("Da ban: " + daBan);
     }
+    
+    public String toFileString() {
+        return maSanPham + ";" + tenSanPham + ";" + loaiSanpham + ";" + nguongoc + ";" +
+               moTa + ";" + donvi + ";" + giaBan + ";" + giaMua + ";" + tonKho + ";" + daBan;
+    }
+    
+    public void ghiFileAppend(String tenFile) {
+        try (PrintWriter pw = new PrintWriter(new FileWriter(tenFile, true))) {
+            pw.println(toFileString());
+            System.out.println("Da ghi san pham vao file: " + tenFile);
+        } catch (IOException e) {
+            System.out.println("Loi ghi file san pham: " + e.getMessage());
+        }
+    }    
 }
