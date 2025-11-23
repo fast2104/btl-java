@@ -1,6 +1,7 @@
 import java.util.Optional;
 import java.util.Scanner;
 import java.util.Vector;
+import java.io.*;
 
 public class QuanTriVien extends NhanVien {
     private Vector<NhanVien> danhSachNhanVien;
@@ -34,8 +35,18 @@ public class QuanTriVien extends NhanVien {
         }
         danhSachNhanVien.add(nv);
         System.out.println("Da them nhan vien thanh cong.");
+        ghiNVvaofile("NhanVien.txt", nv);
     }
-
+    
+    private void ghiNVvaofile(String tenFile, NhanVien nv) {
+        try (PrintWriter pw = new PrintWriter(new FileWriter(tenFile, true))) {
+            pw.println(nv.toFileString());
+            System.out.println("Da ghi nhan vien vao file: " + tenFile);
+        } catch (IOException e){
+            System.out.println("Loi ghi file nhan vien: " + e.getMessage());
+        }
+    }
+    
     public void xoaNhanVien() {
         Scanner sc = new Scanner(System.in);
         System.out.print("Nhap ma nhan vien nhan vien can xoa: ");
@@ -54,7 +65,7 @@ public class QuanTriVien extends NhanVien {
             n.output();
         }
     }
-        public void suaNhanVien() {
+    public void suaNhanVien() {
         Scanner sc = new Scanner(System.in);
         System.out.print("Nhap ma nhan vien can sua: ");
         String ma = sc.nextLine();
@@ -127,7 +138,7 @@ public class QuanTriVien extends NhanVien {
         String mnv = sc.nextLine();
         
         Optional<NhanVien> nv = danhSachNhanVien.stream()
-                .filter(n -> n.maNhanVien != null && n.maNhanVien.equalsIgnoreCase(mnv))
+                .filter(n -> n.maNhanVien != null && n.maNhanVien.equals(mnv))
                 .findFirst();
         if(nv.isPresent()) nv.get().output();
         else System.out.println("ko tim thay nv");
