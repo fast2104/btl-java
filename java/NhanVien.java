@@ -1,13 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package javaptit1.projjava;
-
-/**
- *
- * @author Admin
- */
 import java.util.*;
 import java.util.Scanner;
 public class NhanVien extends connguoi {
@@ -57,5 +47,9 @@ public class NhanVien extends connguoi {
         System.out.println("Ma nhan vien: " + maNhanVien);
         System.out.println("Luong: " + luong);
     }
+    public String toFileString(){
+        return hoTen + ";" + cccd + ";" + diaChi + ";" + soDienThoai + ";" +
+               doB + ";" + gioiTinh + ";" + vaitro + ";" + trangthai + ";" +
+               user + ";" + password + ";" + quyenhan + ";" + maNhanVien + ";" + luong;
+    }    
 }
-
