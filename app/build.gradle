@@ -38,6 +38,14 @@ application {
     mainClass = 'javaptit1.projjava.main'
 }
 
+// Task to run the GUI application
+tasks.register('runGui', JavaExec) {
+    group = 'application'
+    description = 'Run the GUI application'
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = 'javaptit1.projjava.gui.Main'
+}
+
 tasks.named('test') {
     // Use JUnit Platform for unit tests.
     useJUnitPlatform()

@@ -15,6 +15,8 @@ public class QuanTriVien extends NhanVien {
 
     public void output() {
         super.output();
+    }
+
     public void themNhanVien() {
         Scanner sc = new Scanner(System.in);
         NhanVien nv = new NhanVien();
