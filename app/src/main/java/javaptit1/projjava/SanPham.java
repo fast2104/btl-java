@@ -1,55 +1,72 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package javaptit1.projjava;
-import java.io.*;
-import java.util.Scanner;
-public class SanPham implements Ihanghoa {
+
+/**
+ *
+ * @author Admin
+ */
+public class SanPham {
     private String maSanPham;
     private String tenSanPham;
     private String loaiSanpham;
-    private String nguongoc;
+    private String nguonGoc;
     private String moTa;
-    private String donvi;
+    private String donVi;
     private int giaBan;
     private int giaMua;
     private int tonKho;
     private int daBan;
-    
-    public void input(Scanner sc) {
-        System.out.print("Nhap ma SP: ");
-        maSanPham = sc.nextLine();
-        System.out.print("Nhap ten SP: ");
-        tenSanPham = sc.nextLine();
-        System.out.print("nhap loai san pham: ");
-        loaiSanpham = sc.nextLine();
-        System.out.print("nhap nguon goc: ");
-        nguongoc = sc.nextLine();
-        System.out.print("nhap mo ta: ");
-        moTa = sc.nextLine();
-        System.out.print("nhap don vi: ");
-        donvi = sc.nextLine();
-        System.out.print("Nhap gia ban: ");
-        giaBan = sc.nextInt();
-        sc.nextLine();
-        System.out.print("Nhap gia mua: ");
-        giaMua = sc.nextInt();
-        sc.nextLine();
-        System.out.print("Nhap ton kho: ");
-        tonKho = sc.nextInt();
-        sc.nextLine();
-        System.out.print("Nhap da ban: ");
-        daBan = sc.nextInt();
-        sc.nextLine();
+
+    public SanPham() {}
+
+    public SanPham(String maSanPham, String tenSanPham, String loaiSanpham, String nguonGoc, String moTa, String donVi, int giaBan, int giaMua, int tonKho, int daBan) {
+        this.maSanPham = maSanPham;
+        this.tenSanPham = tenSanPham;
+        this.loaiSanpham = loaiSanpham;
+        this.nguonGoc = nguonGoc;
+        this.moTa = moTa;
+        this.donVi = donVi;
+        this.giaBan = giaBan;
+        this.giaMua = giaMua;
+        this.tonKho = tonKho;
+        this.daBan = daBan;
     }
-    
-    public void output() {
-        System.out.println("Ma SP: " + maSanPham);
-        System.out.println("Ten SP: " + tenSanPham);
-        System.out.println("loai SP: " + loaiSanpham);
-        System.out.println("nguon goc: " + nguongoc);
-        System.out.println("mo ta: " + moTa);
-        System.out.println("don vi: " + donvi);
-        System.out.println("Gia ban: " + giaBan);
-        System.out.println("Gia mua: " + giaMua);
-        System.out.println("Ton kho: " + tonKho);
-        System.out.println("Da ban: " + daBan);
+
+    public String getMaSanPham() { return maSanPham; }
+    public void setMaSanPham(String maSanPham) { this.maSanPham = maSanPham; }
+
+    public String getTenSanPham() { return tenSanPham; }
+    public void setTenSanPham(String tenSanPham) { this.tenSanPham = tenSanPham; }
+
+    public String getLoaiSanpham() { return loaiSanpham; }
+    public void setLoaiSanpham(String loaiSanpham) { this.loaiSanpham = loaiSanpham; }
+
+    public String getNguonGoc() { return nguonGoc; }
+    public void setNguonGoc(String nguonGoc) { this.nguonGoc = nguonGoc; }
+
+    public String getMoTa() { return moTa; }
+    public void setMoTa(String moTa) { this.moTa = moTa; }
+
+    public String getDonVi() { return donVi; }
+    public void setDonVi(String donVi) { this.donVi = donVi; }
+
+    public int getGiaBan() { return giaBan; }
+    public void setGiaBan(int giaBan) { this.giaBan = giaBan; }
+
+    public int getGiaMua() { return giaMua; }
+    public void setGiaMua(int giaMua) { this.giaMua = giaMua; }
+
+    public int getTonKho() { return tonKho; }
+    public void setTonKho(int tonKho) { this.tonKho = tonKho; }
+
+    public int getDaBan() { return daBan; }
+    public void setDaBan(int daBan) { this.daBan = daBan; }
+
+    @Override
+    public String toString() {
+        return maSanPham + " - " + tenSanPham;
     }
 }

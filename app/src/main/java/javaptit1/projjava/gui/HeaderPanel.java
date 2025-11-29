@@ -28,13 +28,7 @@ public class HeaderPanel extends JPanel {
                 "Xin chào, <b>" + userName + "</b><br>" +
                 "<i style='font-size: 10px;'>" + role + "</i></div></html>");
         
-        JButton btnLogout = new JButton("Đăng xuất");
-        btnLogout.setBackground(new Color(255, 82, 82));
-        btnLogout.setForeground(Color.WHITE);
-        btnLogout.setFocusPainted(false);
-
         pnlRight.add(lblUser);
-        pnlRight.add(btnLogout);
 
         add(pnlLeft, BorderLayout.WEST);
         add(pnlRight, BorderLayout.EAST);

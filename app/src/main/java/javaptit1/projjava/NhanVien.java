@@ -1,62 +1,78 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package javaptit1.projjava;
-import java.util.*;
-import java.util.Scanner;
-public class NhanVien extends connguoi {
-    protected String hoTen, cccd, diaChi, soDienThoai, doB, gioiTinh, vaitro, trangthai, user, password, quyenhan, maNhanVien;
-    protected long luong;
-    
-    public String getMaNhanVien() { return maNhanVien; }
-    public String getHoTen() { return hoTen; }
-    public String getCccd() { return cccd; }
-    public String getDoB() { return doB; }
-    public long getLuong() { return luong; }
-    public void input(Scanner sc) {
-        System.out.print("Nhap ho ten: ");
-        hoTen = sc.nextLine();
-        System.out.print("Nhap CCCD: ");
-        cccd = sc.nextLine();
-        System.out.print("Nhap dia chi: ");
-        diaChi = sc.nextLine();
-        System.out.print("Nhap so dien thoai: ");
-        soDienThoai = sc.nextLine();
-        System.out.print("Nhap ngay sinh: ");
-        doB = sc.nextLine();
-        System.out.print("Nhap gioi tinh: ");
-        gioiTinh = sc.nextLine();
-        System.out.print("Nhap vai tro: ");
-        vaitro = sc.nextLine();
-        System.out.print("Nhap trang thai: ");
-        trangthai = sc.nextLine();
-        System.out.print("Nhap user: ");
-        user = sc.nextLine();
-        System.out.print("Nhap password: ");
-        password = sc.nextLine();
-        System.out.print("Nhap quyen han: ");
-        quyenhan = sc.nextLine();
-        System.out.print("Nhap ma nhan vien: ");
-        maNhanVien = sc.nextLine();
-        System.out.print("Nhap luong: ");
-        luong = sc.nextLong();
+
+/**
+ *
+ * @author Admin
+ */
+public class NhanVien {
+    private String maNhanVien;
+    private String hoTen;
+    private String cccd;
+    private String soDienThoai;
+    private String gioiTinh;
+    private String vaiTro;
+    private String username;
+    private String password;
+    private long luong;
+    private String ngaySinh;
+    private String diaChi;
+    private String trangThai;
+
+    public NhanVien() {
     }
 
-    public void output() {
-        System.out.println("Ho ten: " + hoTen);
-        System.out.println("CCCD: " + cccd);
-        System.out.println("Dia chi: " + diaChi);
-        System.out.println("SDT: " + soDienThoai);
-        System.out.println("Ngay sinh: " + doB);
-        System.out.println("Gioi tinh: " + gioiTinh);
-        System.out.println("vai tro: " + vaitro);
-        System.out.println("trang thai: " + trangthai);
-        System.out.println("user: " + user);
-        System.out.println("password: " + password);
-        System.out.println("quyen han: " + quyenhan);
-        System.out.println("Ma nhan vien: " + maNhanVien);
-        System.out.println("Luong: " + luong);
+    public NhanVien(String maNhanVien, String hoTen, String cccd, String soDienThoai, String gioiTinh, String vaiTro, String username, String password, long luong, String ngaySinh, String diaChi, String trangThai) {
+        this.maNhanVien = maNhanVien;
+        this.hoTen = hoTen;
+        this.cccd = cccd;
+        this.soDienThoai = soDienThoai;
+        this.gioiTinh = gioiTinh;
+        this.vaiTro = vaiTro;
+        this.username = username;
+        this.password = password;
+        this.luong = luong;
+        this.ngaySinh = ngaySinh;
+        this.diaChi = diaChi;
+        this.trangThai = trangThai;
     }
-    public String toFileString(){
-        return hoTen + ";" + cccd + ";" + diaChi + ";" + soDienThoai + ";" +
-               doB + ";" + gioiTinh + ";" + vaitro + ";" + trangthai + ";" +
-               user + ";" + password + ";" + quyenhan + ";" + maNhanVien + ";" + luong;
-    }    
+    
+    public String getMaNhanVien() { return maNhanVien; }
+    public void setMaNhanVien(String maNhanVien) { this.maNhanVien = maNhanVien; }
+
+    public String getHoTen() { return hoTen; }
+    public void setHoTen(String hoTen) { this.hoTen = hoTen; }
+
+    public String getCccd() { return cccd; }
+    public void setCccd(String cccd) { this.cccd = cccd; }
+
+    public String getSoDienThoai() { return soDienThoai; }
+    public void setSoDienThoai(String soDienThoai) { this.soDienThoai = soDienThoai; }
+
+    public String getGioiTinh() { return gioiTinh; }
+    public void setGioiTinh(String gioiTinh) { this.gioiTinh = gioiTinh; }
+
+    public String getVaiTro() { return vaiTro; }
+    public void setVaiTro(String vaiTro) { this.vaiTro = vaiTro; }
+
+    public String getUsername() { return username; }
+    public void setUsername(String username) { this.username = username; }
+
+    public String getPassword() { return password; }
+    public void setPassword(String password) { this.password = password; }
+
+    public long getLuong() { return luong; }
+    public void setLuong(long luong) { this.luong = luong; }
+    
+    public String getNgaySinh() { return ngaySinh; }
+    public void setNgaySinh(String ngaySinh) { this.ngaySinh = ngaySinh; }
+
+    public String getDiaChi() { return diaChi; }
+    public void setDiaChi(String diaChi) { this.diaChi = diaChi; }
+
+    public String getTrangThai() { return trangThai; }
+    public void setTrangThai(String trangThai) { this.trangThai = trangThai; }
 }

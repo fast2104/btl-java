@@ -16,6 +16,7 @@ public class SidebarPanel extends JPanel {
 
         addMenuButton("Trang chủ", "HOME");
         addMenuButton("Sản phẩm", "PRODUCT");
+        addMenuButton("Nhà Cung Cấp", "SUPPLIER");
         addMenuButton("Nhập hàng", "IMPORT");
         addMenuButton("Nhân viên", "EMPLOYEE");
     }

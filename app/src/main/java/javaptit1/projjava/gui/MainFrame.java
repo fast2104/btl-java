@@ -6,6 +6,11 @@ import java.awt.*;
 public class MainFrame extends JFrame {
     private CardLayout cardLayout;
     private JPanel pnlContent;
+    
+    // Giữ tham chiếu đến các panel cần tương tác
+    private ProductPanel productPanel;
+    private ImportPanel importPanel;
+    private SupplierPanel supplierPanel;
 
     public MainFrame() {
         setTitle("Quản Lý Kho - Nhóm 6");
@@ -25,11 +30,17 @@ public class MainFrame extends JFrame {
         cardLayout = new CardLayout();
         pnlContent = new JPanel(cardLayout);
 
+        // Khởi tạo các panel
+        productPanel = new ProductPanel(this);
+        importPanel = new ImportPanel(this); 
+        supplierPanel = new SupplierPanel(this);
+
         // Thêm các màn hình vào Card
         pnlContent.add(new DashboardPanel(), "HOME");
-        pnlContent.add(new ProductPanel(), "PRODUCT");
-        pnlContent.add(new ImportPanel(), "IMPORT");
+        pnlContent.add(productPanel, "PRODUCT");
+        pnlContent.add(importPanel, "IMPORT");
         pnlContent.add(new EmployeePanel(), "EMPLOYEE");
+        pnlContent.add(supplierPanel, "SUPPLIER");
 
         add(pnlContent, BorderLayout.CENTER);
     }
@@ -37,5 +48,21 @@ public class MainFrame extends JFrame {
     // Hàm chuyển trang được gọi từ Sidebar
     public void switchPanel(String cardName) {
         cardLayout.show(pnlContent, cardName);
+    }
+    
+    // Hàm để ImportPanel gọi sau khi nhập hàng thành công
+    public void onImportSuccess() {
+        // Tải lại dữ liệu trên ProductPanel
+        if (productPanel != null) {
+            productPanel.loadData();
+        }
+    }
+    
+    // Hàm để SupplierPanel hoặc ProductPanel gọi sau khi có thay đổi
+    public void onSupplierOrProductUpdate() {
+        if (importPanel != null) {
+            importPanel.loadSuppliers();
+            importPanel.loadProducts();
+        }
     }
 }

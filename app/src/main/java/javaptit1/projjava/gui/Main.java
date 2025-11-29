@@ -6,12 +6,17 @@ public class Main {
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
             try {
-                // Set giao diện theo hệ điều hành (Windows/Mac/Linux) cho đẹp
                 UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-            } catch (Exception e) {
-                e.printStackTrace();
+            } catch (Exception e) {}
+
+            // Hiện form đăng nhập
+            LoginDialog login = new LoginDialog(null);
+            login.setVisible(true);
+
+            // Nếu đăng nhập thành công thì mở MainFrame
+            if (login.isLoginSuccess) {
+                new MainFrame().setVisible(true);
             }
-            new MainFrame().setVisible(true);
         });
     }
 }

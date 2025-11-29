@@ -60,15 +60,11 @@
 ./gradlew build
 ```
 
-### Chạy ứng dụng Console
+### Chạy ứng dụng
 ```bash
 ./gradlew run
 ```
 
-### Chạy ứng dụng GUI
-```bash
-./gradlew runGui
-```
 
 ---
 
