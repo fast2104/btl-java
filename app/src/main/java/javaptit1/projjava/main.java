@@ -1,3 +1,4 @@
+package javaptit1.projjava;
 import java.util.Scanner;
 public class main {
     public static void main(String[] args) {
@@ -60,20 +61,17 @@ public class main {
         sp.input(sc);
         System.out.println("THONG TIN SAN PHAM:");
         sp.output();
-        sp.ghiFileAppend("SanPham.txt");
 
         DonViCungCap dv = new DonViCungCap();
         System.out.println("\nNHAP DV CUNG CAP:");
         dv.input(sc);
-        System.out.println("THONG TIN DVCC:");
+        System.out.println("THONG TIN DV CUNG CAP:");
         dv.output();
-        dv.ghiFileAppend("DonViCungCap.txt");
 
-        PhieuNhapHang phieu = new PhieuNhapHang();
+        PhieuNhapHang pnh = new PhieuNhapHang();
         System.out.println("\nNHAP PHIEU NHAP HANG:");
-        phieu.input(sc);
-        System.out.println("THONG TIN PHIEU:");
-        phieu.output();
-        phieu.ghiFileAppend("PhieuNhap.txt");
+        pnh.input(sc);
+        System.out.println("THONG TIN PHIEU NHAP HANG:");
+        pnh.output();
     }
 }

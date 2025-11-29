@@ -40,10 +40,31 @@
 | Thành phần           | Công nghệ |
 | ---------------------- | ----------- |
 | Ngôn ngữ lập trình | Java (OOP)  |
-| Giao diện             | winform     |
-| Cơ sở dữ liệu      | Chưa chốt |
+| Giao diện             | Java Swing  |
+| Cơ sở dữ liệu      | MySQL       |
+| Build Tool            | Gradle      |
 | Quản lý mã nguồn   | GitHub      |
 | Tài liệu dự án     | Google Docs |
+
+---
+
+## 🚀 Cách chạy ứng dụng
+
+### Yêu cầu hệ thống
+- Java JDK 17 trở lên
+- MySQL Server
+- Gradle (đã tích hợp sẵn Gradle Wrapper)
+
+### Biên dịch dự án
+```bash
+./gradlew build
+```
+
+### Chạy ứng dụng
+```bash
+./gradlew run
+```
+
 
 ---
 
