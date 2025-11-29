@@ -28,12 +28,6 @@
 
 - Phân quyền người dùng: quản trị, nhân viên
 
-### Báo cáo
-
-- Xuất báo cáo tổng hợp hàng hóa theo tháng, quý
-- Xuất dữ liệu ra file Excel hoặc PDF
-
----
 
 ## 🛠️ Công nghệ sử dụng
 
@@ -72,12 +66,12 @@
 
 | Công việc            | Thành viên            | Tiến độ         |
 | ---------------------- | ----------------------- | ------------------ |
-| Tìm hiểu công nghệ | Cả nhóm               | Đang thực hiện  |
-| Backend Java           | Vinh, Quốc Anh         | Chưa hoàn thành |
-| Thiết kế GUI         | Minh Tùng, Phát       | Chưa hoàn thành |
-| Thiết kế CSDL        | Quốc Anh, Sơn Tùng   | Chưa hoàn thành |
-| Viết tài liệu       | Vinh, Phát, Sơn Tùng | Chưa hoàn thành |
-| Kiểm thử & góp ý   | Cả nhóm               | Chưa hoàn thành |
+| Tìm hiểu công nghệ | Cả nhóm               | Đã hoàn thành  |
+| Backend Java           | Vinh, Quốc Anh         | Đã hoàn thành |
+| Thiết kế GUI         | Minh Tùng, Phát       | Đã hoàn thành |
+| Thiết kế CSDL        | Quốc Anh, Sơn Tùng   | Đã hoàn thành |
+| Viết tài liệu       | Vinh, Phát, Sơn Tùng | Đã hoàn thành |
+| Kiểm thử & góp ý   | Cả nhóm               | Đang hoàn thành |
 
 ---
 
