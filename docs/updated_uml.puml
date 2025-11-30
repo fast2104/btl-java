@@ -1,0 +1,265 @@
+@startuml
+skinparam classAttributeIconSize 0
+skinparam packageStyle rectangle
+skinparam backgroundColor white
+skinparam shadowing false
+skinparam class {
+    BackgroundColor LightBlue
+    BorderColor Black
+}
+
+' ===== MODEL LAYER =====
+package "Model" {
+
+  interface Ihanghoa {
+    +input(sc:Scanner) : void
+    +output() : void
+  }
+
+  class SanPham {
+    -maSanPham : String
+    -tenSanPham : String
+    -loaiSanpham : String
+    -nguonGoc : String
+    -moTa : String
+    -donVi : String
+    -giaBan : int
+    -giaMua : int
+    -tonKho : int
+    -daBan : int
+    +getMaSanPham() : String
+    +setMaSanPham(String) : void
+    +getTenSanPham() : String
+    +setTenSanPham(String) : void
+    +getLoaiSanpham() : String
+    +setLoaiSanpham(String) : void
+    +getNguonGoc() : String
+    +setNguonGoc(String) : void
+    +getMoTa() : String
+    +setMoTa(String) : void
+    +getDonVi() : String
+    +setDonVi(String) : void
+    +getGiaBan() : int
+    +setGiaBan(int) : void
+    +getGiaMua() : int
+    +setGiaMua(int) : void
+    +getTonKho() : int
+    +setTonKho(int) : void
+    +getDaBan() : int
+    +setDaBan(int) : void
+    +toString() : String
+  }
+
+  class DonViCungCap {
+    -maDonVi : String
+    -tenDonVi : String
+    -matHang : String
+    -diaChi : String
+    +getMaDonVi() : String
+    +setMaDonVi(String) : void
+    +getTenDonVi() : String
+    +setTenDonVi(String) : void
+    +getMatHang() : String
+    +setMatHang(String) : void
+    +getDiaChi() : String
+    +setDiaChi(String) : void
+    +toString() : String
+  }
+
+  class PhieuNhap {
+    -maPhieu : int
+    -ngayNhap : String
+    -tongTien : int
+    -maNhanVien : String
+    -maDonVi : String
+    -tenNhaCungCap : String
+    +getMaPhieu() : int
+    +setMaPhieu(int) : void
+    +getNgayNhap() : String
+    +setNgayNhap(String) : void
+    +getTongTien() : int
+    +setTongTien(int) : void
+    +getMaNhanVien() : String
+    +setMaNhanVien(String) : void
+    +getMaDonVi() : String
+    +setMaDonVi(String) : void
+    +getTenNhaCungCap() : String
+    +setTenNhaCungCap(String) : void
+  }
+
+  class PhieuNhapHang {
+    -maPhieu : int
+    -ngayNhap : String
+    -maDonVi : String
+    -tongTien : int
+    -maNhanVien : String
+    +input(sc:Scanner) : void
+    +output() : void
+  }
+
+  class NhanVien {
+    -maNhanVien : String
+    -hoTen : String
+    -cccd : String
+    -soDienThoai : String
+    -gioiTinh : String
+    -vaiTro : String
+    -username : String
+    -password : String
+    -luong : long
+    -ngaySinh : String
+    -diaChi : String
+    -trangThai : String
+    +getMaNhanVien() : String
+    +setMaNhanVien(String) : void
+    +getHoTen() : String
+    +setHoTen(String) : void
+    +getCccd() : String
+    +setCccd(String) : void
+    +getSoDienThoai() : String
+    +setSoDienThoai(String) : void
+    +getGioiTinh() : String
+    +setGioiTinh(String) : void
+    +getVaiTro() : String
+    +setVaiTro(String) : void
+    +getUsername() : String
+    +setUsername(String) : void
+    +getPassword() : String
+    +setPassword(String) : void
+    +getLuong() : long
+    +setLuong(long) : void
+    +getNgaySinh() : String
+    +setNgaySinh(String) : void
+    +getDiaChi() : String
+    +setDiaChi(String) : void
+    +getTrangThai() : String
+    +setTrangThai(String) : void
+  }
+
+  class QuanTriVien {
+    +input(sc:Scanner) : void
+    +output() : void
+    +themNhanVien() : void
+    +xoaNhanVien() : void
+    +suaNhanVien() : void
+    +timnhanvien() : void
+    +hienThiTatCaNhanVien() : void
+  }
+
+  class Session {
+    +{static} user : NhanVien
+  }
+}
+
+' ===== DATABASE LAYER =====
+package "Database" {
+  class JDBCUtil <<singleton>> {
+    +{static} getConnection() : Connection
+    +{static} closeConnection(c:Connection) : void
+  }
+}
+
+' ===== DAO LAYER =====
+package "DAO" {
+  class SanPhamDao {
+    +getAll() : List<SanPham>
+    +insert(sp:SanPham) : boolean
+    +delete(maSP:String) : boolean
+  }
+
+  class DonViCungCapDao {
+    +getAll() : List<DonViCungCap>
+    +insert(ncc:DonViCungCap) : boolean
+    +delete(maNCC:String) : boolean
+  }
+
+  class NhanVienDao {
+    +checkLogin(user:String, pass:String) : NhanVien
+    +getAll() : List<NhanVien>
+    +insert(nv:NhanVien) : boolean
+    +update(nv:NhanVien) : boolean
+    +delete(ma:String) : boolean
+  }
+
+  class PhieuNhapDao {
+    +taoPhieuNhap(maNCC:String, maNV:String, tongTien:int, chiTiet:List) : boolean
+    +getAll() : List<PhieuNhap>
+  }
+}
+
+' ===== GUI LAYER =====
+package "GUI" {
+  class MainFrame {
+    -cardLayout : CardLayout
+    -pnlContent : JPanel
+    -productPanel : ProductPanel
+    -importPanel : ImportPanel
+    -supplierPanel : SupplierPanel
+    +switchPanel(cardName:String) : void
+    +onImportSuccess() : void
+    +onSupplierOrProductUpdate() : void
+  }
+
+  class ProductPanel {
+    -dao : SanPhamDao
+    -mainFrame : MainFrame
+    -table : JTable
+    +loadData() : void
+  }
+
+  class SupplierPanel {
+    -dao : DonViCungCapDao
+    -mainFrame : MainFrame
+    -table : JTable
+  }
+
+  class ImportPanel {
+    -phieuDao : PhieuNhapDao
+    -productDao : SanPhamDao
+    -supplierDao : DonViCungCapDao
+    -mainFrame : MainFrame
+    +loadSuppliers() : void
+    +loadProducts() : void
+  }
+
+  class EmployeePanel {
+    -dao : NhanVienDao
+    -table : JTable
+  }
+
+  class LoginDialog {
+    -dao : NhanVienDao
+  }
+}
+
+' Model relationships
+PhieuNhapHang ..|> Ihanghoa
+QuanTriVien --|> NhanVien
+
+' DAO uses Database
+SanPhamDao ..> JDBCUtil
+DonViCungCapDao ..> JDBCUtil
+NhanVienDao ..> JDBCUtil
+PhieuNhapDao ..> JDBCUtil
+
+' DAO manages Model
+SanPhamDao ..> SanPham
+DonViCungCapDao ..> DonViCungCap
+NhanVienDao ..> NhanVien
+PhieuNhapDao ..> PhieuNhap
+
+' GUI uses DAO
+ProductPanel ..> SanPhamDao
+SupplierPanel ..> DonViCungCapDao
+ImportPanel ..> PhieuNhapDao
+EmployeePanel ..> NhanVienDao
+LoginDialog ..> NhanVienDao
+
+' MainFrame contains panels
+MainFrame o-- ProductPanel
+MainFrame o-- SupplierPanel
+MainFrame o-- ImportPanel
+MainFrame o-- EmployeePanel
+
+@enduml
+
