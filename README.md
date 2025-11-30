@@ -28,7 +28,6 @@
 
 - Phân quyền người dùng: quản trị, nhân viên
 
-
 ## 🛠️ Công nghệ sử dụng
 
 | Thành phần           | Công nghệ |
@@ -65,11 +64,11 @@
 ## 👥 Thành viên & Phân công
 
 | Công việc            | Thành viên            | Tiến độ         |
-| ---------------------- | ----------------------- | ------------------ |
-| Tìm hiểu công nghệ | Cả nhóm               | Đã hoàn thành  |
-| Backend Java           | Vinh, Quốc Anh         | Đã hoàn thành |
-| Thiết kế GUI         | Minh Tùng, Phát       | Đã hoàn thành |
-| Thiết kế CSDL        | Quốc Anh, Sơn Tùng   | Đã hoàn thành |
+| ---------------------- | ----------------------- |-----------------|
+| Tìm hiểu công nghệ | Cả nhóm               | Đã hoàn thành   |
+| Backend Java           | Vinh, Quốc Anh         | Đã hoàn thành   |
+| Thiết kế GUI         | Minh Tùng, Phát       | Đã hoàn thành   |
+| Thiết kế CSDL        | Quốc Anh, Sơn Tùng   | Đã hoàn thành   |
 | Viết tài liệu       | Vinh, Phát, Sơn Tùng | Đang hoàn thành |
 | Kiểm thử & góp ý   | Cả nhóm               | Đang hoàn thành |
 
