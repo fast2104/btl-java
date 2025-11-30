@@ -69,7 +69,7 @@
 | Backend Java           | Vinh, Quốc Anh         | Đã hoàn thành   |
 | Thiết kế GUI         | Minh Tùng, Phát       | Đã hoàn thành   |
 | Thiết kế CSDL        | Quốc Anh, Sơn Tùng   | Đã hoàn thành   |
-| Viết tài liệu       | Vinh, Phát, Sơn Tùng | Đã hoàn thành   |
+| Viết tài liệu       | Vinh, Phát, Sơn Tùng | Đang hoàn thành |
 | Kiểm thử & góp ý   | Cả nhóm               | Đang hoàn thành |
 
 ---
