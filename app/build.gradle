@@ -36,6 +36,7 @@ java {
 application {
     // Define the main class for the application.
     mainClass = 'javaptit1.projjava.gui.Main'
+    applicationDefaultJvmArgs = ["-Dfile.encoding=UTF-8"]
 }
 
 sourceSets {
