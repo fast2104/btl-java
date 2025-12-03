@@ -5,7 +5,7 @@
 
 Đây là dự án môn học Lập trình Hướng Đối Tượng (OOP) được thực hiện bởi Nhóm 6. Mục tiêu của hệ thống là hỗ trợ quản lý hàng hóa trong kho, giúp nhân viên và quản lý dễ dàng thao tác với dữ liệu sản phẩm, giảm sai sót thủ công và nâng cao hiệu quả công việc.
 
-Ứng dụng được xây dựng bằng ngôn ngữ Java theo mô hình OOP, sử dụng giao diện đồ họa (GUI) winform và kết nối với cơ sở dữ liệu để lưu trữ thông tin.
+Ứng dụng được xây dựng bằng ngôn ngữ Java theo mô hình OOP, sử dụng giao diện đồ họa (GUI) Java Swing và kết nối với cơ sở dữ liệu MySQL để lưu trữ thông tin.
 
 ---
 
@@ -50,12 +50,12 @@
 
 ### Biên dịch dự án
 ```bash
-./gradlew build
+gradlew build
 ```
 
 ### Chạy ứng dụng
 ```bash
-./gradlew run
+gradlew run
 ```
 
 
@@ -69,8 +69,8 @@
 | Backend Java           | Vinh, Quốc Anh         | Đã hoàn thành   |
 | Thiết kế GUI         | Minh Tùng, Phát       | Đã hoàn thành   |
 | Thiết kế CSDL        | Quốc Anh, Sơn Tùng   | Đã hoàn thành   |
-| Viết tài liệu       | Vinh, Phát, Sơn Tùng | Đang hoàn thành |
-| Kiểm thử & góp ý   | Cả nhóm               | Đang hoàn thành |
+| Viết tài liệu       | Vinh, Phát, Sơn Tùng | Đã hoàn thành   |
+| Kiểm thử & góp ý   | Cả nhóm               | Đã hoàn thành   |
 
 ---
 
