@@ -101,5 +101,62 @@ public class PhieuNhapDao {
             }
         }
         return list;
-    }    
+    }
+
+    // Xóa phiếu nhập theo mã phiếu
+    public boolean delete(int maPhieu) throws SQLException {
+        Connection c = null;
+        PreparedStatement psChiTiet = null;
+        PreparedStatement psPhieu = null;
+
+        try {
+            c = JDBCUtil.getConnection();
+            c.setAutoCommit(false);
+
+            // 1. Lấy danh sách chi tiết phiếu để trừ tồn kho
+            String sqlGetDetail = "SELECT masanpham, soluong FROM chitietphieunhap WHERE maphieu = ?";
+            try (PreparedStatement psGet = c.prepareStatement(sqlGetDetail)) {
+                psGet.setInt(1, maPhieu);
+                try (ResultSet rs = psGet.executeQuery()) {
+                    String sqlUpdateKho = "UPDATE sanpham SET tonkho = tonkho - ? WHERE masanpham = ?";
+                    try (PreparedStatement psKho = c.prepareStatement(sqlUpdateKho)) {
+                        while (rs.next()) {
+                            String maSP = rs.getString("masanpham");
+                            int soLuong = rs.getInt("soluong");
+                            psKho.setInt(1, soLuong);
+                            psKho.setString(2, maSP);
+                            psKho.executeUpdate();
+                        }
+                    }
+                }
+            }
+
+            // 2. Xóa chi tiết phiếu nhập
+            String sqlDelChiTiet = "DELETE FROM chitietphieunhap WHERE maphieu = ?";
+            psChiTiet = c.prepareStatement(sqlDelChiTiet);
+            psChiTiet.setInt(1, maPhieu);
+            psChiTiet.executeUpdate();
+
+            // 3. Xóa phiếu nhập
+            String sqlDelPhieu = "DELETE FROM phieunhaphang WHERE maphieu = ?";
+            psPhieu = c.prepareStatement(sqlDelPhieu);
+            psPhieu.setInt(1, maPhieu);
+            int result = psPhieu.executeUpdate();
+
+            c.commit();
+            return result > 0;
+
+        } catch (SQLException e) {
+            if (c != null) {
+                try {
+                    c.rollback();
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
+            }
+            throw e;
+        } finally {
+            JDBCUtil.closeConnection(c);
+        }
+    }
 }

@@ -46,6 +46,16 @@ public class ImportPanel extends JPanel {
         loadHistory(); // Load dữ liệu lịch sử
         pnlHistory.add(new JScrollPane(tblHistory), BorderLayout.CENTER);
 
+        // Nút xóa phiếu
+        JButton btnDeletePhieu = new JButton("Xóa phiếu đã chọn");
+        btnDeletePhieu.setBackground(Color.RED);
+        btnDeletePhieu.setForeground(Color.BLACK);
+        btnDeletePhieu.setCursor(new Cursor(Cursor.HAND_CURSOR));
+
+        JPanel pnlHistoryBot = new JPanel();
+        pnlHistoryBot.add(btnDeletePhieu);
+        pnlHistory.add(pnlHistoryBot, BorderLayout.SOUTH);
+
         // --- PHẦN PHẢI: TẠO PHIẾU MỚI ---
         JPanel pnlNew = new JPanel(new BorderLayout());
         pnlNew.setBorder(new TitledBorder("Tạo phiếu nhập mới"));
@@ -171,6 +181,41 @@ public class ImportPanel extends JPanel {
             } catch (SQLException ex) {
                 JOptionPane.showMessageDialog(this, "Lỗi cơ sở dữ liệu khi lưu phiếu: " + ex.getMessage());
                 ex.printStackTrace(); // In chi tiết lỗi ra console để debug
+            }
+        });
+
+        // Sự kiện: Nút Xóa dòng trong giỏ
+        btnDelRow.addActionListener(e -> {
+            int row = tblCart.getSelectedRow();
+            if(row >= 0) {
+                cartList.remove(row);
+                modelCart.removeRow(row);
+                updateTotal();
+            } else {
+                JOptionPane.showMessageDialog(this, "Vui lòng chọn dòng cần xóa!");
+            }
+        });
+
+        // Sự kiện: Nút Xóa phiếu nhập từ lịch sử
+        btnDeletePhieu.addActionListener(e -> {
+            int row = tblHistory.getSelectedRow();
+            if (row >= 0) {
+                String maPhieu = tblHistory.getValueAt(row, 0).toString();
+
+                if (JOptionPane.showConfirmDialog(this, "Bạn chắc chắn muốn xóa phiếu nhập mã " + maPhieu + "?\nDữ liệu sẽ mất vĩnh viễn!") == JOptionPane.YES_OPTION) {
+                    try {
+                        if (pnDao.delete(Integer.parseInt(maPhieu))) {
+                            JOptionPane.showMessageDialog(this, "Đã xóa thành công!");
+                            loadHistory();
+                        } else {
+                            JOptionPane.showMessageDialog(this, "Xóa thất bại!");
+                        }
+                    } catch (SQLException ex) {
+                        JOptionPane.showMessageDialog(this, "Lỗi cơ sở dữ liệu: " + ex.getMessage());
+                    }
+                }
+            } else {
+                JOptionPane.showMessageDialog(this, "Vui lòng chọn phiếu cần xóa ở bảng bên trái!");
             }
         });
 

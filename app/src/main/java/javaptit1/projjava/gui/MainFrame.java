@@ -19,9 +19,8 @@ public class MainFrame extends JFrame {
         setLocationRelativeTo(null);
         setLayout(new BorderLayout());
 
-        // 1. Add Header (North)
-        // Giả sử đang login với User admin
-        add(new HeaderPanel("Admin User", "Quản trị viên"), BorderLayout.NORTH);
+        // 1. Add Header (North) - không cần truyền parameter
+        add(new HeaderPanel(), BorderLayout.NORTH);
 
         // 2. Add Sidebar (West)
         add(new SidebarPanel(this), BorderLayout.WEST);
@@ -49,7 +48,7 @@ public class MainFrame extends JFrame {
     public void switchPanel(String cardName) {
         cardLayout.show(pnlContent, cardName);
     }
-    
+
     // Hàm để ImportPanel gọi sau khi nhập hàng thành công
     public void onImportSuccess() {
         // Tải lại dữ liệu trên ProductPanel
